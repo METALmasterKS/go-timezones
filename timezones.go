@@ -10,6 +10,10 @@ import (
 
 type Timezone string
 
+func (tz *Timezone) String() string {
+	return string(*tz)
+}
+
 type Timezones []Timezone
 
 func (t Timezones) Len() int {

@@ -11,6 +11,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 	"github.com/METALmasterKS/go-timezones"
 )
 
@@ -18,7 +19,12 @@ func main() {
     tzRepository := go_timezones.NewRepository()
     tzlist := tzRepository.GetTimezones() 	
     
-    fmt.Print(tzlist)
+    location, err := time.LoadLocation(tzlist[0].String())
+    if err != nil {
+    	panic(err)
+    }
+    
+    fmt.Print(time.Now().In(location))
 }
 ```
 
