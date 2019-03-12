@@ -9,10 +9,13 @@ you can use `repository` if you want to read timezones once and store in memory 
 ```go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/METALmasterKS/go-timezones"
+)
 
 func main() {
-    tzRepository := NewRepository()
+    tzRepository := go_timezones.NewRepository()
     tzlist := tzRepository.GetTimezones() 	
     
     fmt.Print(tzlist)
@@ -22,5 +25,16 @@ func main() {
 if you don't need to store timezones in memory, you can use
 
 ```go
-tzlist := GetTimezones()
+package main
+
+import (
+	"fmt"
+	"github.com/METALmasterKS/go-timezones"
+)
+
+func main() {
+    tzlist := go_timezones.GetTimezones()	
+    
+    fmt.Print(tzlist)
+}
 ```
